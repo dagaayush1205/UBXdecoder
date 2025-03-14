@@ -23,14 +23,14 @@ The algorithm works as follows:
 * The two CK_ values are 8-Bit unsigned integers only! If implementing with larger-sized integer
 values, make sure to mask both CK_A and CK_B with 0xFF after both operations in the loop.
 
-'''
+```
 CK_A = 0, CK_B = 0
 For(I=0;I<N;I++)
 {
   CK_A = CK_A + Buffer[I]
   CK_B = CK_B + CK_A
 }
-'''
+```
 
 * After the loop, the two U1 values contain the checksum, transmitted after the Message, which
 conclude the Frame.
