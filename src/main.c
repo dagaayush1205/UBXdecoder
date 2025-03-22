@@ -43,6 +43,33 @@ char gps_message;
 //     return 32;0x
 //   }
 // }
+
+int NAV_POSECEF();
+int NAV_POSLLH();
+int NAV_STATUS();
+int NAV_DOP();
+int NAV_ATT();
+int NAV_SOL();
+int NAV_PVT();
+int NAV_ODO();
+int NAV_VELECEF();
+int NAV_VELNED();
+int NAV_TIMEUTC();
+int NAV_CLOCK();
+int NAV_TIMEGPS();
+int NAV_TIMEGLO();
+int NAV_TIMEBDS();
+int NAV_TIMEGAL();
+int NAV_SVINFO();
+int NAV_DGPS();
+int NAV_SBAS();
+int NAV_ORB();
+int NAV_SAT();
+int NAV_GEOFENCE();
+int NAV_SVIN();
+int NAV_RELPOSNED();
+int NAV_EELL();
+
 int check_start_frame(char a, char b)
 {
   if (a == 0xb5)
@@ -55,6 +82,58 @@ int check_msg_class(char a)
   if (a == 0x01)
     return 0;
   return 1;
+}
+int check_msg_id(char a)
+{
+switch (a) {
+    case 0x01: 
+      NAV_POSECEF();
+      break;
+
+    case 0x02:
+      NAV_POSLLH();
+      break;
+
+    case 0x03: 
+      NAV_STATUS(); 
+      break; 
+    
+    case 0x04: 
+      NAV_DOP(); 
+      break; 
+    
+    case 0x05: 
+      NAV_ATT(); 
+      break; 
+    
+    case 0x07: 
+      NAV_PVT(); 
+      break; 
+    
+    case 0x09:
+      NAV_VELECEF(); 
+      break; 
+    
+    case 0x0A:
+      NAV_VELNED(); 
+      break; 
+    
+    case 0x0D:
+      NAV_TIMEUTC(); 
+      break; 
+    
+    case 0x27: 
+      NAV_SAT(); 
+      break; 
+    
+    default:
+    return 1;
+  }
+}
+
+NAV_POSECEF(char a[20])
+{
+
 }
 int main()
 {
